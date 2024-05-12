@@ -27,7 +27,7 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let list of lists" >
+      <tr *ngFor="let list of lists$ |async" >
         <td> {{list.id}} </td>
         <td>  {{list.nome}}  </td>
         <td>  {{list.descricao}}  </td>
