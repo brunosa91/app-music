@@ -1,3 +1,5 @@
+import { MusicList } from './model/list.model';
+import { MusicService } from './service/music.service';
 import { Component } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 
@@ -8,7 +10,12 @@ import { environment } from 'src/environments/environment.development';
 })
 export class AppComponent {
   title = 'app-music';
-  constructor(){
+  list :MusicList[] = []
+  constructor(musicService:MusicService){
     console.log("to aquiiii", environment.api)
+  }
+
+  obterListDeMusica(){
+
   }
 }
