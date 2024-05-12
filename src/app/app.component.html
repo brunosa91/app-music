@@ -21,16 +21,18 @@
   <table>
     <thead>
       <th> Id </th>
-      <th> Author </th>
-      <th> Musica </th>
-      <th> ... </th>
+      <th> list </th>
+      <th> description </th>
+      <th>  </th>
     </thead>
 
     <tbody>
-      <tr >
-        <td>  </td>
-        <td>  </td>
-        <td>  </td>
+      <tr *ngFor="let list of lists" >
+        <td> {{list.id}} </td>
+        <td>  {{list.nome}}  </td>
+        <td>  {{list.descricao}}  </td>
+        <td>  {{list.musicas}}  </td>
+
         <td>
           <span  > alterar </span>
           <span > remover </span>

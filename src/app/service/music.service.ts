@@ -1,6 +1,6 @@
 import { environment } from './../../environments/environment.development';
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/Common/http'
+import { HttpClient } from '@angular/common/http';
 import { Music, MusicList } from '../model/list.model';
 
 @Injectable({

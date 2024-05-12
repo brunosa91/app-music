@@ -10,12 +10,13 @@ import { environment } from 'src/environments/environment.development';
 })
 export class AppComponent {
   title = 'app-music';
-  list :MusicList[] = []
-  constructor(musicService:MusicService){
-    console.log("to aquiiii", environment.api)
+  lists :MusicList[] = []
+  constructor(private musicService:MusicService){
+    this.obterListDeMusica()
   }
 
   obterListDeMusica(){
+    this.musicService.obterList().subscribe(lists => this.lists = lists)
 
   }
 }
