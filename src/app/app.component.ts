@@ -34,4 +34,10 @@ export class AppComponent {
     this.musicService.cadastrarList({nome:this.nome,descricao:this.descricao, musicas:this.musicas})
     .subscribe(()=>this.musicService.obterList())
   }
+
+  remover(nome:string){
+    this.musicService.removerList(nome)
+    .subscribe(()=> this.obterListDeMusica());
+
+  }
 }

@@ -32,8 +32,8 @@
         <td>  {{list.nome}}  </td>
         <td>  {{list.descricao}}  </td>
         <td>
-          <span  > alterar </span>
-          <span > remover </span>
+          <span> Acessar </span>
+          <span (click)="remover(list.nome)">  remover </span>
         </td>
       </tr>
 
