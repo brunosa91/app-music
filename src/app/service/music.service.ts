@@ -1,3 +1,4 @@
+import { MusicListCreate } from './../model/list.model';
 import { environment } from './../../environments/environment.development';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -18,5 +19,14 @@ export class MusicService {
    obterList(){
     return this._httpclient.get<MusicList[]>(this.url +'/list')
    }
+   obterListId(){
+    return this._httpclient.get<MusicList[]>(this.url +'/list/{id}')
+   }
+
+
+  cadastrarList(list:MusicListCreate){
+    return this._httpclient.post<MusicListCreate>(this.url + '/list',list)
+
+  }
 }
 

@@ -12,7 +12,13 @@ import { environment } from 'src/environments/environment.development';
 export class AppComponent {
   title = 'app-music';
  // lists :MusicList[] = []
-    lists$ = new Observable<MusicList[]>()
+    lists$ = new Observable<MusicList[]>();
+
+    id = '';
+    nome='';
+    descricao=''
+    musicas=[]
+
 
   constructor(private musicService:MusicService){
     this.obterListDeMusica()
@@ -22,5 +28,10 @@ export class AppComponent {
   //  this.musicService.obterList().subscribe(lists => this.lists = lists)
   this.lists$ = this.musicService.obterList();
 
+  }
+
+  cadastraList(){
+    this.musicService.cadastrarList({nome:this.nome,descricao:this.descricao, musicas:this.musicas})
+    .subscribe(()=>this.musicService.obterList())
   }
 }

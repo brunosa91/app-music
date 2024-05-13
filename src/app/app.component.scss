@@ -5,6 +5,8 @@
   place-items: center;
   padding: 20px;
   overflow: auto;
+  background: linear-gradient(145deg, #232425, #2a2b2c);
+
 
   &::-webkit-scrollbar {
     width: 0px;
@@ -80,6 +82,15 @@
       color: #61677A;
 
     }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
 
     span {
       text-decoration: underline;

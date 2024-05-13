@@ -2,20 +2,20 @@
   <form>
     <div>
       <label>Id</label>
-      <input type="text"  [(ngModel)]="id" name="id"  >
+      <input type="text"  name="id">
     </div>
 
     <div>
       <label>Author</label>
-      <input type="text"  [(ngModel)]="nome" name="nome" >
+      <input type="text" name="autor">
     </div>
 
     <div>
       <label>Musica</label>
-      <input type="text"  [(ngModel)]="descricao" name="descricao" >
+      <input type="text" name="musica">
     </div>
 
-    <button (click)='cadastraList()'>Criar Lista</button>
+    <button ></button>
   </form>
 
   <table>
@@ -31,6 +31,14 @@
         <td> {{list.id}} </td>
         <td>  {{list.nome}}  </td>
         <td>  {{list.descricao}}  </td>
+       <td>
+          <ul>
+            <li *ngFor="let music of list.musicas">
+              {{ music.titulo }} - {{ music.artista }} - {{ music.album }} - {{ music.ano }} - {{ music.genero }}
+            </li>
+          </ul>
+        </td>
+
         <td>
           <span  > alterar </span>
           <span > remover </span>
