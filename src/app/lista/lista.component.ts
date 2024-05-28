@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { MusicList } from '../model/list.model';
 import { MusicService } from '../service/music.service';
 
@@ -8,20 +7,37 @@ import { MusicService } from '../service/music.service';
   templateUrl: './lista.component.html',
   styleUrls: ['./lista.component.scss']
 })
-export class ListaComponent {
+export class ListaComponent implements OnInit {
 
   title = 'app-music';
-  // lists :MusicList[] = []
-     lists$ = new Observable<MusicList[]>()
+     lists :MusicList[] = []
+     id = '';
+     nome='';
+     descricao=''
+     musicas=[]
+
 
    constructor(private musicService:MusicService){
      this.obterListDeMusica()
    }
-
-   obterListDeMusica(){
-   //  this.musicService.obterList().subscribe(lists => this.lists = lists)
-   this.lists$ = this.musicService.obterList();
+   ngOnInit(): void {
 
    }
 
+   obterListDeMusica(){
+    this.musicService.obterList().subscribe(lists => this.lists = lists)
+
+   }
+
+
+  cadastraList(){
+    this.musicService.cadastrarList({nome:this.nome,descricao:this.descricao, musicas:this.musicas})
+    .subscribe(()=>this.musicService.obterList())
+  }
+
+  remover(nome:string){
+    this.musicService.removerList(nome)
+    .subscribe(()=> this.obterListDeMusica());
+
+  }
 }

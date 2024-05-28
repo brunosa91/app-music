@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Music, MusicList } from '../model/list.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +17,10 @@ export class MusicService {
     this.url = `${environment.api}/list`
    }
 
-   obterList(){
+   obterList() : Observable<MusicList[]>{
     return this._httpclient.get<MusicList[]>(this.url )
    }
-   obterListId(){
+   obterListId() : Observable<MusicList[]>{
     return this._httpclient.get<MusicList[]>(this.url +'/{id}')
    }
 

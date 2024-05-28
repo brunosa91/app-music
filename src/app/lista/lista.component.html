@@ -1,47 +1,35 @@
 <div class="container">
   <form>
     <div>
-      <label>Id</label>
-      <input type="text"  name="id">
+      <label>Nome</label>
+      <input type="text" [(ngModel)]="nome" name="nome">
     </div>
 
     <div>
-      <label>Author</label>
-      <input type="text" name="autor">
+      <label>Descrição</label>
+      <input type="text" [(ngModel)]="descricao" name="descricao">
     </div>
 
-    <div>
-      <label>Musica</label>
-      <input type="text" name="musica">
-    </div>
-
-    <button ></button>
+    <button  (click)='cadastraList()'>CRIAR LISTA</button>
   </form>
 
   <table>
     <thead>
-      <th> Id </th>
-      <th> list </th>
-      <th> description </th>
+      <th > ID </th>
+      <th> LISTA </th>
+      <th> DESCRIÇÃO </th>
       <th>  </th>
     </thead>
 
     <tbody>
-      <tr *ngFor="let list of lists$ |async" >
+      <tr *ngFor="let list of lists" >
         <td> {{list.id}} </td>
         <td>  {{list.nome}}  </td>
         <td>  {{list.descricao}}  </td>
-       <td>
-          <ul>
-            <li *ngFor="let music of list.musicas">
-              {{ music.titulo }} - {{ music.artista }} - {{ music.album }} - {{ music.ano }} - {{ music.genero }}
-            </li>
-          </ul>
-        </td>
+
 
         <td>
-          <span  > alterar </span>
-          <span > remover </span>
+          <span (click)='remover(list.nome)' > Remover </span>
         </td>
       </tr>
 

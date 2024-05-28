@@ -3,13 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListaComponent } from './lista/lista.component';
 
 const routes: Routes = [{
-  path: '',
-  redirectTo: '',
-  pathMatch: 'full'
+  path:'',
+  redirectTo:'lista',
+  pathMatch:'full',
 },
 {
   path:'lista',
-  component: ListaComponent
+  component:ListaComponent
 },];
 
 @NgModule({
